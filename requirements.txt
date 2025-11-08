@@ -1,0 +1,19 @@
+# Core Python Libraries
+pandas
+numpy
+
+# Visualization Libraries
+matplotlib
+seaborn
+folium
+
+# Machine Learning & Imputation
+scikit-learn
+
+# Jupyter Notebook Environment
+ipython
+notebook
+
+# Optional (for better HTML rendering and maps)
+jupyterlab
+branca
