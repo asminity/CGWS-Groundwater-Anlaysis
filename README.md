@@ -17,20 +17,25 @@ It leverages **Python, pandas, seaborn, folium, and scikit-learn** to clean, ana
 
 ---
 
-## 📂 Repository Structure
+### 📘 Folder Description
 
-| File / Folder | Description |
-|----------------|-------------|
-| **Groundwater.xlsx** | Source dataset containing groundwater parameters. |
-| **report.ipynb** | Main Jupyter Notebook with full workflow (data cleaning, EDA, modeling, visualization). |
-| **README.md** | Project documentation (this file). |
-| **requirements.txt** | Dependencies and package versions required to run the notebook. |
-| **map.html** | Interactive groundwater map generated with Folium. |
-| **ph_distribution.png** | pH value distribution plot. |
-| **unsafe_states.png** | Bar plot showing top unsafe states. |
-| **correlation_heatmap.png** | Correlation matrix of groundwater parameters. |
-| **confusion_matrix.png** | Confusion matrix of classification results. |
-| **roc_curve.png** | ROC curve visualizing model performance. |
+| Folder | Description |
+|--------|--------------|
+| **DataSet/** | Contains raw groundwater data in Excel format. |
+| **Map/** | Stores the generated interactive map (`map.html`) for visual analysis. |
+| **Report/** | Includes Jupyter Notebook (`report.ipynb`) containing all data cleaning, EDA, and model development. |
+| **Results PNG Files/** | Stores output figures such as plots, heatmaps, confusion matrix, and ROC curve. |
+| **venv/** | Virtual environment folder containing installed dependencies. |
+
+---
+
+### 🧾 File Description
+
+| File | Purpose |
+|------|----------|
+| **.gitignore** | Specifies files/folders excluded from version control. |
+| **requirements.txt** | Contains all Python package dependencies. |
+| **README.md** | Documentation with setup instructions, workflow, and results overview. |
 
 ---
 
@@ -175,4 +180,5 @@ You may use, modify, and distribute this project freely with proper credit.
 🌐 [https://github.com/asminity](https://github.com/asminity)
 
 > *“Sustainable groundwater management starts with understanding data.”*
+
 
