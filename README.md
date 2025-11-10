@@ -60,103 +60,119 @@ Open map.html in your browser to explore safe/unsafe locations.
 Generated .png plots will appear in your working directory.
 ```
 
-📊 Project Workflow
-1. Data Preprocessing
-Missing values handled using KNN Imputation.
+## 📊 Project Workflow
 
-Removed columns with >30% missing data (e.g., As, Fe, PO₄, U).
+### **1. Data Preprocessing**
+- Missing values handled using **KNN Imputation**.  
+- Removed columns with >30% missing data (e.g., **As, Fe, PO₄, U**).  
+- Renamed and standardized column names and units.
 
-Renamed and standardized column names and units.
+---
 
-2. Exploratory Data Analysis (EDA)
-pH and EC distribution visualized using density plots.
+### **2. Exploratory Data Analysis (EDA)**
+- Visualized **pH** and **EC (Electrical Conductivity)** distributions using density plots.  
+- Detected unsafe samples based on **BIS/WHO safe limits**.  
+- Identified top unsafe states using frequency counts.
 
-Unsafe samples detected based on BIS/WHO safe limits.
+---
 
-Top unsafe states identified using frequency counts.
+### **3. Correlation Analysis**
+- Generated a **heatmap** to visualize relationships between key ions.  
+- Found strong correlations among **EC, Na, Cl, and Hardness**, representing **salinity and mineralization processes**.
 
-3. Correlation Analysis
-Heatmap generated to show relationships between key ions.
+---
 
-Found strong correlations among EC, Na, Cl, and Hardness — representing salinity and mineralization processes.
+### **4. Geospatial Mapping**
+- Created an **interactive map** using **Folium** with:
+  - 🟢 **Green markers:** Safe samples  
+  - 🔴 **Red markers:** Unsafe samples  
+- Unsafe clusters are concentrated in **western, northern, and southern India**.
 
-4. Geospatial Mapping
-Created interactive map using Folium with red (unsafe) and green (safe) points.
+---
 
-Unsafe clusters concentrated in western, northern, and southern India.
+### **5. Machine Learning Model**
+- Trained a **Random Forest Classifier** to predict water safety.  
+- Evaluated model performance using **accuracy, precision, recall, F1-score**, and **ROC-AUC** metrics.  
 
-5. Machine Learning Model
-Trained Random Forest Classifier to predict water safety.
+#### **Model Performance**
+- **Training Accuracy:** 100%  
+- **Test Accuracy:** 99.76%  
+- **Cross-Validation Accuracy:** 99.54%  
+- **AUC:** 1.00  
+- Only **8 misclassifications out of 3,356 samples** — excellent performance.  
 
-Evaluated using accuracy, precision, recall, F1-score, and ROC-AUC.
+---
 
-Achieved:
+## 💡 Key Insights
 
-Training Accuracy: 100%
+| **Category** | **Observation** |
+|---------------|----------------|
+| **Total Samples** | 16,776 |
+| **Safe Samples** | 4,743 (28%) |
+| **Unsafe Samples** | 12,033 (72%) |
+| **Top Unsafe Parameters** | EC, NO₃, HCO₃ |
+| **Top Unsafe States** | Maharashtra, Andhra Pradesh, Telangana, Rajasthan, Tamil Nadu, Haryana |
+| **Major Correlations** | EC ↔ Na ↔ Cl ↔ Total Hardness |
+| **Dominant Issue** | Salinity and mineral contamination |
 
-Test Accuracy: 99.76%
+---
 
-Cross-Validation Accuracy: 99.54%
+## 📈 Visual Outputs
 
-AUC: 1.00
+| **Visualization** | **Description** |
+|--------------------|-----------------|
+| **pH Distribution Plot** | KDE plot showing the distribution of pH values. |
+| **Unsafe States Plot** | Top 10 states with the most unsafe groundwater samples. |
+| **Correlation Heatmap** | Correlation among groundwater quality parameters. |
+| **Confusion Matrix** | Random Forest confusion matrix showing classification accuracy. |
+| **ROC Curve** | ROC curve illustrating near-perfect classification performance. |
 
-Only 8 misclassifications out of 3,356 samples — excellent performance.
+---
 
-💡 Key Insights
-Category	Observation
-Total Samples	16,776
-Safe Samples	4,743 (28%)
-Unsafe Samples	12,033 (72%)
-Top Unsafe Parameters	EC, NO₃, HCO₃
-Top Unsafe States	Maharashtra, Andhra Pradesh, Telangana, Rajasthan, Tamil Nadu, Haryana
-Major Correlations	EC ↔ Na ↔ Cl ↔ Total Hardness
-Dominant Issue	Salinity and mineral contamination
+## 🌎 Geospatial Visualization
+The **map.html** file displays groundwater safety visually using an **interactive Folium map**.
 
-📈 Visual Outputs
-Visualization	Description
-KDE plot showing the distribution of pH values.
-Top 10 states with the most unsafe groundwater samples.
-Correlation among groundwater quality parameters.
-Random Forest confusion matrix showing classification accuracy.
-ROC curve illustrating near-perfect classification performance.
+- 🟢 **Green markers:** Safe water samples  
+- 🔴 **Red markers:** Unsafe water samples  
 
-🌎 Geospatial Visualization
-The map.html file displays groundwater safety visually using an interactive map.
+Unsafe clusters are concentrated in **Gujarat, Rajasthan, Maharashtra, Tamil Nadu, and Andhra Pradesh**,  
+while **eastern India** shows relatively safer groundwater conditions.
 
-🟢 Green markers — Safe water samples.
+---
 
-🔴 Red markers — Unsafe water samples.
+## 🧠 Future Enhancements
 
-Unsafe clusters are concentrated in Gujarat, Rajasthan, Maharashtra, Tamil Nadu, and Andhra Pradesh, while eastern India shows relatively safer conditions.
+To further expand and refine this project:
+- Add **Feature Importance** and **SHAP Explainability** for model interpretability.  
+- Create **Choropleth maps** to show state/district unsafe percentages.  
+- Include **Temporal Analysis** (if `Year` column available).  
+- Develop a **Water Quality Index (WQI)** for risk grading.  
+- Deploy the project using **Streamlit** or **Dash** for real-time interactive dashboards.  
 
-🧠 Future Enhancements
-To expand and refine this project, you can:
+---
 
-Add Feature Importance and SHAP Explainability for interpretability.
+## 🧰 Tech Stack
 
-Create Choropleth maps showing state/district unsafe percentages.
+| **Category** | **Tools Used** |
+|---------------|----------------|
+| **Programming Language** | Python 3.11+ |
+| **Data Processing** | pandas, numpy |
+| **Visualization** | matplotlib, seaborn, folium |
+| **Machine Learning** | scikit-learn |
+| **Notebook Environment** | Jupyter / Google Colab |
 
-Include Temporal Analysis (if Year column available).
+---
 
-Develop Water Quality Index (WQI) for risk grading.
-
-Deploy via Streamlit / Dash as an interactive dashboard.
-
-🧰 Tech Stack
-Category	Tools Used
-Programming Language	Python 3.11+
-Data Processing	pandas, numpy
-Visualization	matplotlib, seaborn, folium
-Machine Learning	scikit-learn
-Notebook Environment	Jupyter / Google Colab
-
-📜 License
-This project is licensed under the MIT License.
+## 📜 License
+This project is licensed under the **MIT License**.  
 You may use, modify, and distribute this project freely with proper credit.
 
-👩‍💻 Author
-Asmility / Asminity
-📧 asmit12yadav@gmail.com
-🌐 https://github.com/asminity
+---
 
-“Sustainable groundwater management starts with understanding data.”
+## 👩‍💻 Author
+**Asmility / Asminity**  
+📧 [asmit12yadav@gmail.com](mailto:asmit12yadav@gmail.com)  
+🌐 [https://github.com/asminity](https://github.com/asminity)
+
+> *“Sustainable groundwater management starts with understanding data.”*
+
